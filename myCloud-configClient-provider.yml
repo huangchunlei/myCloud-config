@@ -1,0 +1,67 @@
+spring: 
+  profiles:
+    active:
+    - dev
+--- 
+server:
+  port: 8001
+spring:
+  profiles: dev
+  application:
+    name: myCloud-configClient-provider   
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.2.131:3306/springcloud01
+      username: root
+      password: 123456
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.csii.springcloud.entities
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+ 
+eureka: 
+  client: #客户端注册进eureka服务列表内
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+
+---
+server:
+  port: 8001
+spring:
+  profiles: test
+  application:
+    name: myCloud-configClient-provider   
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.2.131:3306/springcloud01
+      username: root
+      password: 123456
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.csii.springcloud.entities
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+ 
+eureka: 
+  client: #客户端注册进eureka服务列表内
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+ 
+
