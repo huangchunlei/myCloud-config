@@ -44,7 +44,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.2.131:3306/springcloud01
+      url: jdbc:mysql://192.168.2.131:3306/springcloud02
       username: root
       password: 123456
       initial-size: 5
